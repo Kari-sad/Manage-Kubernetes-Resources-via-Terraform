@@ -1,0 +1,30 @@
+NAMESPACE            NAME                                                        READY   STATUS    RESTARTS   AGE
+default              pod/scalable-nginx-example-76b6ff59fb-29xdj                 1/1     Running   0          16m
+default              pod/scalable-nginx-example-76b6ff59fb-wx77b                 1/1     Running   0          16m
+kube-system          pod/coredns-f9fd979d6-5g6vs                                 1/1     Running   0          90m
+kube-system          pod/coredns-f9fd979d6-bq4t5                                 1/1     Running   0          90m
+kube-system          pod/etcd-terraform-learn-control-plane                      1/1     Running   0          90m
+kube-system          pod/kindnet-vg9tg                                           1/1     Running   0          90m
+kube-system          pod/kube-apiserver-terraform-learn-control-plane            1/1     Running   0          90m
+kube-system          pod/kube-controller-manager-terraform-learn-control-plane   1/1     Running   2          90m
+kube-system          pod/kube-proxy-249f8                                        1/1     Running   0          90m
+kube-system          pod/kube-scheduler-terraform-learn-control-plane            1/1     Running   1          90m
+local-path-storage   pod/local-path-provisioner-78776bfc44-t8ljg                 1/1     Running   0          90m
+
+NAMESPACE     NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+default       service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP                  90m
+kube-system   service/kube-dns     ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   90m
+
+NAMESPACE     NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+kube-system   daemonset.apps/kindnet      1         1         1       1            1           <none>                   90m
+kube-system   daemonset.apps/kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   90m
+
+NAMESPACE            NAME                                     READY   UP-TO-DATE   AVAILABLE   AGE
+default              deployment.apps/scalable-nginx-example   2/2     2            2           16m
+kube-system          deployment.apps/coredns                  2/2     2            2           90m
+local-path-storage   deployment.apps/local-path-provisioner   1/1     1            1           90m
+
+NAMESPACE            NAME                                                DESIRED   CURRENT   READY   AGE
+default              replicaset.apps/scalable-nginx-example-76b6ff59fb   2         2         2       16m
+kube-system          replicaset.apps/coredns-f9fd979d6                   2         2         2       90m
+local-path-storage   replicaset.apps/local-path-provisioner-78776bfc44   1         1         1       90m
